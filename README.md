@@ -3,4 +3,4 @@
 Cloud Functionsチームのリポジトリ  
 
 ## Hello World
-curl https://us-central1-tee-pod.cloudfunctions.net/helloWorld
+`curl https://us-central1-tee-pod.cloudfunctions.net/helloWorld`
