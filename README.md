@@ -1,3 +1,6 @@
 # tee-pod
 
-Cloud Functionsチームのリポジトリ
+Cloud Functionsチームのリポジトリ  
+
+## Hello World
+curl https://us-central1-tee-pod.cloudfunctions.net/helloWorld
