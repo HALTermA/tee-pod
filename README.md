@@ -4,7 +4,7 @@ Cloud Functionsチームのリポジトリ
 `git clone https://github.com/HALTermA/tee-pod.git`  
 `cd tee-pod`  
 `npm install`  
-で動くと思う  
+で構築  
 `firebase serve --only functions`  
 で作った関数をローカルでテストできる
 ## Hello World
