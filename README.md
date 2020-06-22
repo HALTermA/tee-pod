@@ -1,6 +1,7 @@
 # tee-pod
 
 Cloud Functionsチームのリポジトリ  
+## <span style="red">勝手にデプロイしないこと！！！</span>
 `git clone https://github.com/HALTermA/tee-pod.git`  
 `cd tee-pod`  
 `npm install`  
