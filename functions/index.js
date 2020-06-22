@@ -7,12 +7,14 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello world!");
 });
 
-exports.returnText = functions.https.onRequest((request, response) => {
-  if (request.method !== 'POST') {
-    response.status(400).send("GETで送ってるやで") 
+exports.returnJson = functions.https.onRequest(async (request, response) => {
+  if (request.method === "POST" && "GET") {
+    if (request.body === undefined) {
+      response.status(400).send("データがないやで")
+    }
+    response.status(200).send(request.body)
   }
-  if (request.body.date === undefined) {
-    response.status(400).send("データがないやで")
+  else {
+    response.send("なんかおかしいよ")
   }
-  response.send(`date: ${request.body.date}`)
 });
