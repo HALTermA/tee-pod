@@ -15,6 +15,6 @@ exports.returnJson = functions.https.onRequest(async (request, response) => {
     response.status(200).send(request.body)
   }
   else {
-    response.send("なんかおかしいよ")
+    response.status(400).send("なんかおかしいよ")
   }
 });
