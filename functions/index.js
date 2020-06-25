@@ -4,17 +4,5 @@ const functions = require('firebase-functions');
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello world!");
-});
-
-exports.returnJson = functions.https.onRequest(async (request, response) => {
-  if (request.method === "POST" && "GET") {
-    if (request.body === undefined) {
-      response.status(400).send("データがないやで")
-    }
-    response.status(200).send(request.body)
-  }
-  else {
-    response.status(400).send("なんかおかしいよ")
-  }
+  response.send(`Hello ${escapeHtml(request.query.name || request.body.name || 'World')}!`);
 });
