@@ -6,3 +6,18 @@ const functions = require('firebase-functions');
 // exports.helloWorld = functions.https.onRequest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
+exports.helloWorld = functions.https.onRequest((request, response) => {
+    response.send("Hello world!");
+  });
+
+exports.returnJson = functions.https.onRequest(async (request, response) => {
+    if (request.method === "POST" && "GET") {
+      if (request.body === undefined) {
+        response.status(400).send("no data")
+      }
+      response.status(200).send(request.body)
+    }
+    else {
+      response.send("error!")
+    }
+  });
