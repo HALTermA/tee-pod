@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin")
-const servisAcount = require("../tee-pod-firebase-adminsdk-p6k1p-eb0cbe3787.json")
-// C:\Users\user\Desktop\curl-7.70.0-win64-mingw\bin\curl.exe -X POST -H "Content-Type:application/json" -d @light.json http://localhost:5000/tee-pod/us-central1/changeColor
+const servisAcount = require("./tee-pod-firebase-adminsdk-p6k1p-eb0cbe3787.json")
+
 admin.initializeApp({
   credential: admin.credential.cert(servisAcount),
   databaseURL: "https://tee-pod.firebaseio.com"
@@ -9,16 +9,9 @@ admin.initializeApp({
 
 const fireStore = admin.firestore()
 
-exports.hello = functions.https.onRequest((request, response) => {
-  var createRef = fireStore.collection('hello');
-  createRef.doc('sample').set({lanch: true, color: 'normal' })
-  response.status(200).send("deketa")
-})
-
 exports.changeColor = functions.https.onRequest((request, response) => {
   const normal = "normal", warning = "warning", partyPeople = "paetyPeople";
   const changeColorRef = fireStore.collection('tee-pod').doc('status');
-  console.log(Boolean(request.body.color.colors.warning === normal))
 
   if (Object.keys(request.body).length) {
     if (request.get('content-type') === 'application/json') {
